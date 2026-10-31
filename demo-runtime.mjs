@@ -22,10 +22,11 @@ if(!window.__KELVARA_HARNESS__&&sessionStorage.getItem(FLAG)==='1'){
   window.__KELVARA_DEMO_WALLET__={isSolflare:true,isConnected:true,publicKey,connect:async()=>({publicKey}),disconnect:async()=>{},on(){},off(){},signMessage:refuse,signTransaction:refuse,signAllTransactions:refuse,signAndSendTransaction:refuse};
 
   const reply=(status,body)=>new Response(JSON.stringify(body),{status,headers:{'content-type':'application/json'}});
-  const realFetch=window.fetch.bind(window);
+  const realFetch=window.fetch.bind(window),API_ORIGINS=new Set([location.origin,'https://api.kelvara.xyz']);
   window.fetch=async(input,init)=>{
     const url=new URL(typeof input==='string'?input:input.url,location.href);
-    if(url.origin!==location.origin||!url.pathname.startsWith('/api/')&&url.pathname!=='/healthz')return realFetch(input,init);
+    // app.kelvara.xyz calls the separate production API origin; the demo answers it too, so nothing reaches production.
+    if(!API_ORIGINS.has(url.origin)||!url.pathname.startsWith('/api/')&&url.pathname!=='/healthz')return realFetch(input,init);
     if(url.pathname==='/api/auth/session')return reply(200,{ok:true,wallet:WALLET,network:'mainnet-beta'});
     if(url.pathname==='/healthz')return reply(200,{ok:true});
     const key=url.pathname.startsWith('/api/portfolio/')?'portfolio':url.pathname.slice(5).replace(/[^a-zA-Z0-9]+/g,'_');

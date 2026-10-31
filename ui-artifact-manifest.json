@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "canonicalSource": "KELVARA-V4/ui",
-  "canonicalSourceCommit": "b5fe3812583f861481643c2829b41bb8bdb9f8e6",
+  "canonicalSourceCommit": "b214d2911eca1a173f264b2b3073aad57cdecf19",
   "deploymentTarget": "kelvara-labs/kelvara-app-ui:main:/",
-  "generatedAt": "2026-10-31T17:35:51.034Z",
+  "generatedAt": "2026-10-31T17:42:10.326Z",
   "files": [
     {
       "path": ".nojekyll",
@@ -28,7 +28,7 @@
     {
       "path": "app.html",
       "bytes": 44016,
-      "sha256": "cd22c3b88b7ccf1d3b615e6c7e656e98dd8a7108f188776683c1200a8b83aaa6"
+      "sha256": "d0addc81d7871cf0987b7e4b7cc387e3ee92adae04bbc8e408c1091d290920be"
     },
     {
       "path": "app.js",
@@ -172,8 +172,8 @@
     },
     {
       "path": "demo-runtime.mjs",
-      "bytes": 69069,
-      "sha256": "3543740fcdc711ade5ce5ad81fa773c5578af5d1aba69fe6f7be2da0e60e9969"
+      "bytes": 69255,
+      "sha256": "d2993cfd7d1fcff11b7b310d114cb9d13010101d51b7d1e6eac9d5a6c00a1340"
     },
     {
       "path": "devnet-demo-context.mjs",
