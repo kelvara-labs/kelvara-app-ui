@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "canonicalSource": "KELVARA-V4/ui",
-  "canonicalSourceCommit": "d3afa2ffb4fa62f05210550593aa3921b5168f36",
-  "deploymentTarget": "andrzejsantocki/kelvara-ui:main:/",
-  "generatedAt": "2026-10-19T11:10:33.362Z",
+  "canonicalSourceCommit": "b5fe3812583f861481643c2829b41bb8bdb9f8e6",
+  "deploymentTarget": "kelvara-labs/kelvara-app-ui:main:/",
+  "generatedAt": "2026-10-31T17:35:51.034Z",
   "files": [
     {
       "path": ".nojekyll",
@@ -16,24 +16,24 @@
       "sha256": "cd5a599d3876e7b706e0c1eaecfb958df66dbc363981a585cf6c54b2107423c2"
     },
     {
-      "path": "animal-identicon.js",
-      "bytes": 8399,
-      "sha256": "0fb1ffed568ca49885552bdc79ae3d024d562a5dcd28000a97c2553eb5a76373"
+      "path": "action-debug.js",
+      "bytes": 1512,
+      "sha256": "c1ab11410814ec439a2ae6cc99b9706c56b695112252f442f96873febe4e3109"
     },
     {
       "path": "api-session-policy.js",
-      "bytes": 1256,
-      "sha256": "ed5dba7d3a9ac847868077306ef5497ca83e9df47a56c38959a01aa3ed98866c"
+      "bytes": 2378,
+      "sha256": "882cc2fe997649395a5f33e2d10348bc7149e6b8b6ea7624de32dbedf60c2260"
     },
     {
       "path": "app.html",
-      "bytes": 29219,
-      "sha256": "4adc5ba2ec7fc9e515ace81d2bbeb99692e70c21be5915c186799f103150b241"
+      "bytes": 44016,
+      "sha256": "cd22c3b88b7ccf1d3b615e6c7e656e98dd8a7108f188776683c1200a8b83aaa6"
     },
     {
       "path": "app.js",
-      "bytes": 169812,
-      "sha256": "3034a8e543cb2146e44bf7ed69a821969b9522971585cf0e75c2b053177b986e"
+      "bytes": 220404,
+      "sha256": "a4fba6f10976f11331697d506d3b9b266d334809eb1d7aaf56e237eb820ac313"
     },
     {
       "path": "assets/custom/fallback.svg",
@@ -49,6 +49,26 @@
       "path": "assets/custom/registry.js",
       "bytes": 341,
       "sha256": "f98a6a0a5701e4016d8c4a7f3fe662e96ce83af2d04133b63587ed9303b7b98c"
+    },
+    {
+      "path": "assets/fonts/inter-latin-400-normal.woff2",
+      "bytes": 23664,
+      "sha256": "8909904ab6c872eb994093482a88a28eca2cd95912d7b6fecd72103b0dc07edc"
+    },
+    {
+      "path": "assets/fonts/inter-latin-500-normal.woff2",
+      "bytes": 24272,
+      "sha256": "f3779f1efccc4bdcdf9c0a02ab95bf6bd092ed09c48c08cedc725889edd1d19f"
+    },
+    {
+      "path": "assets/fonts/jetbrains-mono-latin-400-normal.woff2",
+      "bytes": 21168,
+      "sha256": "14425ba9c695763c1547f48a206b7aa60350a33ae23de09f0407877f3fcd89eb"
+    },
+    {
+      "path": "assets/fonts/jetbrains-mono-latin-500-normal.woff2",
+      "bytes": 21832,
+      "sha256": "cb182feeed4d798ff6961d3c79f7026279448fca0676438aaecb21f3fc39553a"
     },
     {
       "path": "assets/kelvara-icon.png",
@@ -72,13 +92,13 @@
     },
     {
       "path": "assets/posthog.js",
-      "bytes": 2106,
-      "sha256": "9288463178ecb2587cca32d3885a5b952d31300a2ce20551736847f1ed90cf75"
+      "bytes": 3203,
+      "sha256": "6bf697ce687bb2a1ca9b1a72d24397516e47d408d6c0403463bde664fcbed1e3"
     },
     {
       "path": "assets/protocols/kamino.svg",
-      "bytes": 406,
-      "sha256": "b084661ec3ad0521f7fa106eaeeae9d483b49afdfa9caf0bc8100ecd483d144e"
+      "bytes": 410,
+      "sha256": "af57b3119aea965219dcf4813a5a9c35a2888dae51ba6a2d69d331f10f31c0e1"
     },
     {
       "path": "assets/protocols/registry.js",
@@ -88,7 +108,7 @@
     {
       "path": "assets/protocols/steakhouse.svg",
       "bytes": 1560,
-      "sha256": "658563cb9337f78372b507071a18fabec93a14062da94c8f64fe2ab1c50ca297"
+      "sha256": "6f7ef7aa4666bf941d741d43c44fdf478012107b1d341bc5807cfdfd87bdcc19"
     },
     {
       "path": "assets/site.css",
@@ -117,13 +137,13 @@
     },
     {
       "path": "assets/tokens/usdg.png",
-      "bytes": 6241,
-      "sha256": "fa58e85ede7faba7b852c34e75c7df020d5a788065e07e2bd0cbe9fc8f500517"
+      "bytes": 15837,
+      "sha256": "f0912324c304a16426745be67f62aeef5d2e867651181c67560fca2d164b6f88"
     },
     {
       "path": "assets/tokens/usdg.svg",
-      "bytes": 16884,
-      "sha256": "3e6051d6f17def5214f248b60a02d00f84feb278769048188fa058a495233b9a"
+      "bytes": 42468,
+      "sha256": "72f7ddf7d66228f22360ea12df0fa4ef5342701c2b8db09f0137377f91ff6c06"
     },
     {
       "path": "assets/tokens/usdt.svg",
@@ -144,6 +164,16 @@
       "path": "assets/wallets/solflare.svg",
       "bytes": 1643,
       "sha256": "792b1985a75726b03655429e8debfa49c63452c44a18c487ba22ef1eeb072afe"
+    },
+    {
+      "path": "canonical-ui.js",
+      "bytes": 1428,
+      "sha256": "42deb759875a02f700367c3fa76a51c38e1ae66d4cf1e5560e50b08c87ed6973"
+    },
+    {
+      "path": "demo-runtime.mjs",
+      "bytes": 69069,
+      "sha256": "3543740fcdc711ade5ce5ad81fa773c5578af5d1aba69fe6f7be2da0e60e9969"
     },
     {
       "path": "devnet-demo-context.mjs",
@@ -167,38 +197,48 @@
     },
     {
       "path": "favicon.ico",
-      "bytes": 12918,
-      "sha256": "2ff73917571dbddf2d6953b2414eaf72304cf12db0c7d04f1c6c8b3353775e41"
+      "bytes": 92568,
+      "sha256": "d778c07c89717ac70d96d46aa1a2447bcb623c257211058e50295edf248c9784"
     },
     {
       "path": "favicon.png",
-      "bytes": 143985,
-      "sha256": "38b4a98db89be7e561604210935bf4657353fa44665ab1f116c04fca1169f69b"
+      "bytes": 208472,
+      "sha256": "b619a29b7c7eca50e8cc6f3a171dc36d41374db7c80f37227abc0f0e3dfd7311"
     },
     {
       "path": "favicon.svg",
-      "bytes": 195,
-      "sha256": "03a228a9c5fc2087934b3a86d18515b6cf2cf5a786fd8285f63f0dc6ed6d1f54"
+      "bytes": 278235,
+      "sha256": "9951686a723a53b53d48cf635611a9dde9937bb4c171b6ea090c79c72a3747ba"
     },
     {
       "path": "feedback.js",
-      "bytes": 1662,
-      "sha256": "9b6a5994a214758b500de942ccffa7144a436ca8e31fa300d6f09f4dd86a0ed2"
+      "bytes": 3203,
+      "sha256": "e06445aac2038cf4d95c644f0ca536f59344dfcf7f5399782a197a7363a17feb"
     },
     {
       "path": "icon.png",
-      "bytes": 143985,
-      "sha256": "38b4a98db89be7e561604210935bf4657353fa44665ab1f116c04fca1169f69b"
+      "bytes": 208472,
+      "sha256": "b619a29b7c7eca50e8cc6f3a171dc36d41374db7c80f37227abc0f0e3dfd7311"
+    },
+    {
+      "path": "identicon.js",
+      "bytes": 1094,
+      "sha256": "bf28a303875a92e700a900748cddc2e7e331da7131dac84003f70d2026f17365"
     },
     {
       "path": "index.html",
-      "bytes": 37825,
-      "sha256": "698af089f12b3126b5c9302cf43b0a0da35574ad39f4c4996841409d0be2ce19"
+      "bytes": 46861,
+      "sha256": "40c9868b568af08dc1cd37f7585740228ab23eb5d3dfe016c594caa80fc2defb"
     },
     {
       "path": "manifest.webmanifest",
       "bytes": 344,
       "sha256": "e047243e22041086c3661d626ba48b59aa9daacba1478e1c0ad8adc066a81148"
+    },
+    {
+      "path": "motion-system.js",
+      "bytes": 9927,
+      "sha256": "58f5cf981c659f3a7b3f73f0d48719defabdb1795dacbd1b53c7ec2e566c46f2"
     },
     {
       "path": "network-identity.mjs",
@@ -211,9 +251,14 @@
       "sha256": "081ba9acc02ee4176be0cb8de4271f1f41fdeef8b03c3da8d564a569e09cf7a3"
     },
     {
-      "path": "patch-positions.css",
-      "bytes": 2056,
-      "sha256": "49c8471c0d6bd18452bc232d107584c89eabb9d8bd6356daa130af539d5e29d7"
+      "path": "page-shell.js",
+      "bytes": 2271,
+      "sha256": "01ef6715cfdab281d3f59c40c24270a4a5450b64aede6cc6dc25537e8f6dd534"
+    },
+    {
+      "path": "performance-metrics.js",
+      "bytes": 4355,
+      "sha256": "f5c497f65bffe2f10f2d0c674039aa578f87e8ffa9c0345a19ede54d21c1fba3"
     },
     {
       "path": "protected-withdraw.js",
@@ -236,9 +281,19 @@
       "sha256": "bb9adb6f336d7f4095e20d676c8f41d79e1d12f5541cd00ec620a28ce26f3323"
     },
     {
+      "path": "status-link.js",
+      "bytes": 604,
+      "sha256": "b50db229a741c2da8a4491be539d0038680e6c07776335b1eeb97c54eefa3616"
+    },
+    {
       "path": "styles.css",
-      "bytes": 104225,
-      "sha256": "be9eafe54af6d3bf9932651f90d68479bded58f6ec6fab81afa1593a3f496182"
+      "bytes": 163979,
+      "sha256": "8dea1aaec9fb5e61e7b02f1701a12c09fb5df808617cfe7fa0324e4420b4d5ed"
+    },
+    {
+      "path": "ui-version.js",
+      "bytes": 2172,
+      "sha256": "58c30d455499d46ad52a6f61beef19f818c4bf7fbc4c6ed89fea798b083fe164"
     },
     {
       "path": "vendor/solana-web3.min.js",
@@ -249,6 +304,31 @@
       "path": "wallet-disconnect-state.mjs",
       "bytes": 1282,
       "sha256": "ae6a31ebc3a66605dd7856c8879c2c24333d74940c847eb24c3c311b46d2b897"
+    },
+    {
+      "path": "wallet-exposure-confirm.js",
+      "bytes": 3993,
+      "sha256": "26d15b62e16278c7cec9807edd28b55fb2d91ab6b182aff7eb8ff74218ad3dbe"
+    },
+    {
+      "path": "wallet-exposure-revoke-success.js",
+      "bytes": 4926,
+      "sha256": "35145a3256dbd1d6fe5f2ff5984d344897dd2bcdc2a81402fdd070e9af44a43d"
+    },
+    {
+      "path": "wallet-exposure-revoke.js",
+      "bytes": 5599,
+      "sha256": "1fc9996e42fe8ac545c93f360f872c192a8b2b2df9ff90d1c75fcdf50dea63b8"
+    },
+    {
+      "path": "wallet-exposure.css",
+      "bytes": 15263,
+      "sha256": "f3d4a1e09bdd0a8a8049e4b25a4972d5ad15f8e771085da12913a790d4e6e819"
+    },
+    {
+      "path": "wallet-exposure.js",
+      "bytes": 25051,
+      "sha256": "c840f9040bf579698740ec339ab0c12fb7df8cbb57ec6b6f7ad8e5c7a4c0d985"
     },
     {
       "path": "withdraw-success-focus.js",
