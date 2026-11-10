@@ -16,7 +16,7 @@
   const page=context.checked?(route()==='exitrail'?'protection':new Set(['overview','positions','governance','safeguards','account']).has(route())?route():'home'):'home';
   const payload={category:category.value,message:text,page};submit.disabled=true;status.textContent='Submitting…';
   try{
-   const send=()=>fetch('/api/feedback',{method:'POST',headers:{'content-type':'application/json',authorization:`Bearer ${JSON.parse(sessionStorage.getItem('kelvara_app_session')||'{}').token||''}`},body:JSON.stringify(payload),signal:AbortSignal.timeout(15000)});
+   const send=()=>fetch(`${location.hostname==='app.kelvara.xyz'?'https://api.kelvara.xyz':''}/api/feedback`,{method:'POST',headers:{'content-type':'application/json',authorization:`Bearer ${JSON.parse(sessionStorage.getItem('kelvara_app_session')||'{}').token||''}`},body:JSON.stringify(payload),signal:AbortSignal.timeout(15000)});
    let response=await send();if(response.status===401&&typeof window.kelvaraRefreshWalletSession==='function'){await window.kelvaraRefreshWalletSession();response=await send()}
    if(!response.ok)throw Error('request_failed');const receipt=await response.json();if(typeof receipt.id!=='string'||!receipt.id.trim())throw Error('receipt_missing');
    status.textContent=`Request submitted · ${receipt.id}`;subject.value='';message.value='';

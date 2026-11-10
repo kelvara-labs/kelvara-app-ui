@@ -243,5 +243,5 @@ mobileMore.onclick=()=>{mobileExpanded=true;render()};[search,type,protocol].for
 })();
 </script>
 <script>document.querySelectorAll('[data-current-year]').forEach(node=>node.textContent=String(new Date().getFullYear()))</script>
-<script type="module">import{publishUiVersion}from'/ui-version.js';publishUiVersion({scriptUrl:new URL('/app.js?v=protection-scope-20261013-2',location.href).href,healthUrl:new URL('/healthz',location.href).href});</script>
+<script type="module">import{publishUiVersion}from'/ui-version.js';publishUiVersion({scriptUrl:new URL('/app.js?v=protection-scope-20261013-2',location.href).href,healthUrl:new URL('/healthz',location.hostname==='app.kelvara.xyz'?'https://api.kelvara.xyz':location.href).href});</script>
 </body></html>

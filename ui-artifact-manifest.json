@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "canonicalSource": "KELVARA-V4/ui",
-  "canonicalSourceCommit": "bcc70fd6591c2f589729ee8d598d9025b563f595",
+  "canonicalSourceCommit": "1277cbd63070b9e4825b7a5dcadb1153733c8230",
   "deploymentTarget": "kelvara-labs/kelvara-app-ui:main:/",
-  "generatedAt": "2026-11-10T08:06:52.475Z",
+  "generatedAt": "2026-11-10T08:16:40.006Z",
   "files": [
     {
       "path": ".nojekyll",
@@ -32,13 +32,13 @@
     },
     {
       "path": "app.html",
-      "bytes": 44672,
-      "sha256": "40fd5e044253d2442ef3d1d3b45c3df15e9dd9831ca7911dabaf0198e1a2d077"
+      "bytes": 44736,
+      "sha256": "fcfe46f8fa37b3b2005a095928921f479641dc8d0823214362cf5527247c9214"
     },
     {
       "path": "app.js",
-      "bytes": 243773,
-      "sha256": "5d747b923dd1cca05182a66fc4387e3e23f63a9628af3c84262193ea57ababab"
+      "bytes": 243808,
+      "sha256": "3c877c0e501163a2dac9cf5dc6d4d441f7fd35b841373b7b4ff383e257465d57"
     },
     {
       "path": "assets/custom/fallback.svg",
@@ -227,8 +227,8 @@
     },
     {
       "path": "feedback.js",
-      "bytes": 3203,
-      "sha256": "e06445aac2038cf4d95c644f0ca536f59344dfcf7f5399782a197a7363a17feb"
+      "bytes": 3272,
+      "sha256": "cc474beaa4c47caadf25e198e2714e72be94267de3662aa221cb0af0539461c9"
     },
     {
       "path": "icon.png",
@@ -242,8 +242,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 46861,
-      "sha256": "40c9868b568af08dc1cd37f7585740228ab23eb5d3dfe016c594caa80fc2defb"
+      "bytes": 46925,
+      "sha256": "46784df566557cc9ed145eba907185709eec19d3e119b385edf0e2e6df813943"
     },
     {
       "path": "instant-liquidity.js",

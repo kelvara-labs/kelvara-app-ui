@@ -22,7 +22,7 @@ import{describeActionError,renderActionError}from"./action-error.js";
 // toasts and click breadcrumbs, batched to /api/client-events. Never throws into the app.
 const clientLog=(()=>{const queue=[],page=()=>(location.pathname+location.hash).slice(0,200);let timer=null,sending=false;
  const describe=value=>value instanceof Error?{message:`${value.name}: ${value.message}`,stack:value.stack||null}:{message:typeof value==="string"?value:(()=>{try{return JSON.stringify(value)}catch{return String(value)}})(),stack:null};
- const flush=()=>{timer=null;if(sending||!queue.length)return;sending=true;const events=queue.splice(0,25);fetch("/api/client-events",{method:"POST",headers:{"content-type":"application/json","x-kelvara-network":(()=>{try{return String(CURRENT_NETWORK||"")}catch{return""}})()},body:JSON.stringify({events}),keepalive:true}).catch(()=>{}).finally(()=>{sending=false;if(queue.length)schedule()})};
+ const flush=()=>{timer=null;if(API_BASE){queue.length=0;return}if(sending||!queue.length)return;sending=true;const events=queue.splice(0,25);fetch("/api/client-events",{method:"POST",headers:{"content-type":"application/json","x-kelvara-network":(()=>{try{return String(CURRENT_NETWORK||"")}catch{return""}})()},body:JSON.stringify({events}),keepalive:true}).catch(()=>{}).finally(()=>{sending=false;if(queue.length)schedule()})};
  const schedule=()=>{if(!timer)timer=setTimeout(flush,1200)};
  const push=event=>{try{if(queue.length<200)queue.push({at:new Date().toISOString(),page:page(),...event});schedule()}catch{}};
  window.addEventListener("error",event=>push({level:"error",...describe(event.error||event.message),source:event.filename?`${event.filename}:${event.lineno}:${event.colno}`:null}));
