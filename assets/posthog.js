@@ -5,6 +5,8 @@ posthog.init("phc_zrUnirUNQg6hFqBkPTubzUfEBjxTc7J3TxSfCMky7pre", {
   api_host: "https://eu.i.posthog.com",
   defaults: "2026-05-30",
   person_profiles: "identified_only",
+  cross_subdomain_cookie: false,
+  respect_dnt: true,
   autocapture: {dom_event_allowlist: ["click","change","submit"]},
   capture_pageview: "history_change",
   capture_pageleave: true,
@@ -23,8 +25,29 @@ posthog.init("phc_zrUnirUNQg6hFqBkPTubzUfEBjxTc7J3TxSfCMky7pre", {
   }
 });
 
-const workspace=()=>{const route=(location.hash.slice(1).split("/")[0]||"landing");return new Set(["landing","overview","positions","governance","safeguards","exitrail","activity","account"]).has(route)?route:"other"};
+const workspaces=new Set(["landing","overview","positions","vaults","wallet-exposure","governance","safeguards","exitrail","activity","account"]);
 let lastWorkspace;
-const captureWorkspace=()=>{const route=workspace();if(route===lastWorkspace)return;lastWorkspace=route;posthog.capture("workspace viewed",{workspace:route})};
-addEventListener("hashchange",captureWorkspace);
+window.kelvaraTelemetry=(name,properties={})=>{
+  try{
+    if(navigator.doNotTrack==="1"||window.doNotTrack==="1")return;
+    if(name==="workspace viewed"){
+      const workspace=properties.workspace;
+      if(!workspaces.has(workspace)||workspace===lastWorkspace)return;
+      posthog.capture(name,{workspace});lastWorkspace=workspace;return;
+    }
+    if(!new Set(["wallet connected","wallet connection failed","wallet authenticated","wallet authentication failed","positions loaded","positions empty","positions load failed","position selected","protection activated","protection activation failed","withdrawal submitted","withdrawal confirmed","withdrawal failed"]).has(name))return;
+    const safe={};
+    if(["mainnet-beta","devnet"].includes(properties.network))safe.network=properties.network;
+    if(["failed","unavailable","unresolved"].includes(properties.reason))safe.reason=properties.reason;
+    posthog.capture(name,safe);
+  }catch{}
+};
+// The app publishes only after selecting its pane; support either script order.
+const captureWorkspace=()=>window.kelvaraTelemetry("workspace viewed",{workspace:window.__kelvaraWorkspace});
+addEventListener("kelvara:workspace",captureWorkspace);
 captureWorkspace();
+const captureLanding=()=>{
+  if((location.pathname==="/"||location.pathname==="/index.html")&&document.querySelector('#landing-health-status'))window.kelvaraTelemetry("workspace viewed",{workspace:"landing"});
+};
+if(document.readyState==="loading"||!document.readyState)addEventListener("DOMContentLoaded",captureLanding);
+else captureLanding();

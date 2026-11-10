@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "canonicalSource": "KELVARA-V4/ui",
-  "canonicalSourceCommit": "b214d2911eca1a173f264b2b3073aad57cdecf19",
+  "canonicalSourceCommit": "bcc70fd6591c2f589729ee8d598d9025b563f595",
   "deploymentTarget": "kelvara-labs/kelvara-app-ui:main:/",
-  "generatedAt": "2026-10-31T17:42:10.326Z",
+  "generatedAt": "2026-11-10T08:06:52.475Z",
   "files": [
     {
       "path": ".nojekyll",
@@ -21,19 +21,24 @@
       "sha256": "c1ab11410814ec439a2ae6cc99b9706c56b695112252f442f96873febe4e3109"
     },
     {
+      "path": "action-error.js",
+      "bytes": 9098,
+      "sha256": "982ec65b1b28f850799034230c482e39a7008c0dcc5e0e15e40d25e11465a33b"
+    },
+    {
       "path": "api-session-policy.js",
-      "bytes": 2378,
-      "sha256": "882cc2fe997649395a5f33e2d10348bc7149e6b8b6ea7624de32dbedf60c2260"
+      "bytes": 3553,
+      "sha256": "14596542cd764ddf53a6b4c367574234ceff19cff739ef5e732611c60b64d4eb"
     },
     {
       "path": "app.html",
-      "bytes": 44016,
-      "sha256": "d0addc81d7871cf0987b7e4b7cc387e3ee92adae04bbc8e408c1091d290920be"
+      "bytes": 44672,
+      "sha256": "40fd5e044253d2442ef3d1d3b45c3df15e9dd9831ca7911dabaf0198e1a2d077"
     },
     {
       "path": "app.js",
-      "bytes": 220404,
-      "sha256": "a4fba6f10976f11331697d506d3b9b266d334809eb1d7aaf56e237eb820ac313"
+      "bytes": 243773,
+      "sha256": "5d747b923dd1cca05182a66fc4387e3e23f63a9628af3c84262193ea57ababab"
     },
     {
       "path": "assets/custom/fallback.svg",
@@ -49,6 +54,11 @@
       "path": "assets/custom/registry.js",
       "bytes": 341,
       "sha256": "f98a6a0a5701e4016d8c4a7f3fe662e96ce83af2d04133b63587ed9303b7b98c"
+    },
+    {
+      "path": "assets/fonts/instrument-sans-latin-variable.woff2",
+      "bytes": 30092,
+      "sha256": "2ee17598a98d8a59e4df8152d015bec9ab8e4d5672cc0ab42bef806b568e3971"
     },
     {
       "path": "assets/fonts/inter-latin-400-normal.woff2",
@@ -92,8 +102,8 @@
     },
     {
       "path": "assets/posthog.js",
-      "bytes": 3203,
-      "sha256": "6bf697ce687bb2a1ca9b1a72d24397516e47d408d6c0403463bde664fcbed1e3"
+      "bytes": 4521,
+      "sha256": "d7d3c9e306dd60f02b8dbcc286af2c66d8d443c50dea7cf38065dd0c8b35e3ad"
     },
     {
       "path": "assets/protocols/kamino.svg",
@@ -167,13 +177,13 @@
     },
     {
       "path": "canonical-ui.js",
-      "bytes": 1428,
-      "sha256": "42deb759875a02f700367c3fa76a51c38e1ae66d4cf1e5560e50b08c87ed6973"
+      "bytes": 1451,
+      "sha256": "10a11837c6796d463783ba0ebddd4cf8f1e8512ca1aaca7dc7e7aeeb48b005f2"
     },
     {
       "path": "demo-runtime.mjs",
-      "bytes": 69255,
-      "sha256": "d2993cfd7d1fcff11b7b310d114cb9d13010101d51b7d1e6eac9d5a6c00a1340"
+      "bytes": 335595,
+      "sha256": "4c2d4676533193ff3c24c4bfbeb94d222c9832b49417d0050395885ea987e13c"
     },
     {
       "path": "devnet-demo-context.mjs",
@@ -194,6 +204,11 @@
       "path": "dom-poller.mjs",
       "bytes": 831,
       "sha256": "68b89ea112c45a5fb0066ce922ff64b7fc64175207d7aefeaac1d6fcbf6f1965"
+    },
+    {
+      "path": "exit-ladder.js",
+      "bytes": 8793,
+      "sha256": "ff43d2e4ddb815548a389f67da7d6614fa30cbe847587682f6dbe8278dd279b2"
     },
     {
       "path": "favicon.ico",
@@ -231,6 +246,16 @@
       "sha256": "40c9868b568af08dc1cd37f7585740228ab23eb5d3dfe016c594caa80fc2defb"
     },
     {
+      "path": "instant-liquidity.js",
+      "bytes": 11643,
+      "sha256": "cba1fcf16aed803f1e9dcdd91caee342565ea968cf2d8ac8f40f3690383580e3"
+    },
+    {
+      "path": "liquidity.html",
+      "bytes": 1805,
+      "sha256": "1407eaf00a0267e252c6b2760cb5c5e80ac6ccfe55a6e8e86de06f5307ffed70"
+    },
+    {
       "path": "manifest.webmanifest",
       "bytes": 344,
       "sha256": "e047243e22041086c3661d626ba48b59aa9daacba1478e1c0ad8adc066a81148"
@@ -252,13 +277,18 @@
     },
     {
       "path": "page-shell.js",
-      "bytes": 2271,
-      "sha256": "01ef6715cfdab281d3f59c40c24270a4a5450b64aede6cc6dc25537e8f6dd534"
+      "bytes": 2455,
+      "sha256": "739cd53e97a5901ab5040c8624d759927c7218cbf7148e7c87c4594d6c82a70e"
     },
     {
       "path": "performance-metrics.js",
       "bytes": 4355,
       "sha256": "f5c497f65bffe2f10f2d0c674039aa578f87e8ffa9c0345a19ede54d21c1fba3"
+    },
+    {
+      "path": "position-overview.js",
+      "bytes": 12183,
+      "sha256": "9ccfaad0acf8796b93747610b7292a1935db54c9f3ea2f07b16c850980f4731c"
     },
     {
       "path": "protected-withdraw.js",
@@ -287,13 +317,33 @@
     },
     {
       "path": "styles.css",
-      "bytes": 163979,
-      "sha256": "8dea1aaec9fb5e61e7b02f1701a12c09fb5df808617cfe7fa0324e4420b4d5ed"
+      "bytes": 224679,
+      "sha256": "f0e204489d970b44e805f3d296ebe327ffea39fda51d9af2064c9bdc9dfb99d1"
     },
     {
       "path": "ui-version.js",
       "bytes": 2172,
       "sha256": "58c30d455499d46ad52a6f61beef19f818c4bf7fbc4c6ed89fea798b083fe164"
+    },
+    {
+      "path": "vault-charts.js",
+      "bytes": 16755,
+      "sha256": "292ad4109e7b38485192cd16f9967fb8368baec605f07c683ede2c87fce4d59a"
+    },
+    {
+      "path": "vault-composition.js",
+      "bytes": 11842,
+      "sha256": "349ad75d061487be737ed821796b5618bf65b67f5ce280e87aed47f26cb9f2f5"
+    },
+    {
+      "path": "vault-metrics.js",
+      "bytes": 52959,
+      "sha256": "9f61019d8a87b866b20e0f8fb55c392f22ab537fc8b4b322c148ce0ac851b86d"
+    },
+    {
+      "path": "vaults-page.js",
+      "bytes": 9080,
+      "sha256": "3c44aa1e75f659d7c466346574d15b71fd30d898cb275d9065086e9bc801b8ac"
     },
     {
       "path": "vendor/solana-web3.min.js",
@@ -327,8 +377,8 @@
     },
     {
       "path": "wallet-exposure.js",
-      "bytes": 25051,
-      "sha256": "c840f9040bf579698740ec339ab0c12fb7df8cbb57ec6b6f7ad8e5c7a4c0d985"
+      "bytes": 25127,
+      "sha256": "09f19f5af870e01d95cd55574283da5c709ee38fb7986d8b47a4596cbe63953c"
     },
     {
       "path": "withdraw-success-focus.js",
@@ -339,6 +389,11 @@
       "path": "withdraw-success.js",
       "bytes": 1434,
       "sha256": "332a0ca97f472c987c3b834a732009ecdb96f735264588bbe4c58569a86dd8b3"
+    },
+    {
+      "path": "withdrawal-liquidity.js",
+      "bytes": 12382,
+      "sha256": "576a137fa099bb6a9650ad38ab75c1b9d6c730dd975e5d60985c80310390582c"
     }
   ]
 }

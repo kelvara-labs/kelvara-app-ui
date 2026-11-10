@@ -7,7 +7,7 @@ export function positionDisplayAmount(position={}){
  const amount=position.details?.underlyingAmount??position.underlyingAmount??position.display?.amount??position.display?.balance;
  const asset=position.details?.asset??position.asset??position.token?.symbol;
  if(amount==null||amount==='')return'Balance unavailable';
- const numeric=Number(amount),display=Number.isFinite(numeric)?new Intl.NumberFormat('en-US',{maximumFractionDigits:2}).format(numeric):String(amount);
+ const numeric=Number(amount),display=Number.isFinite(numeric)?new Intl.NumberFormat('en-US',{maximumFractionDigits:2}).format(numeric).replace(/,/g,'\u00A0'):String(amount);
  return`${display}${asset?` ${asset}`:''}`;
 }
 

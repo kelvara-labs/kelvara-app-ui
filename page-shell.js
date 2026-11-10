@@ -1,6 +1,7 @@
 const pages=Object.freeze({
  overview:{className:'overview-hero',eyebrow:'OVERVIEW',eyebrowExtra:'<span id="network-mode-separator" hidden> · </span><span id="network-mode-label"></span>',title:'Explore supported positions',titleId:'overview-heading',description:'Connect a wallet to see your monitored positions.',descriptionId:'overview-evidence'},
  positions:{eyebrow:'POSITIONS',eyebrowExtra:'<span id="positions-network-separator"> · </span><span id="positions-network-label">MAINNET</span>',title:'Your positions',description:'Monitor your supported DeFi positions in one place.',wrapClass:'positions-mast-copy'},
+ vaults:{eyebrow:'VAULTS',eyebrowExtra:'<span> · </span><span>MAINNET</span>',title:'Your vaults',description:'What the vaults you hold are made of, recorded over time by Kelvara.'},
  governance:{eyebrow:'GOVERNANCE',title:'Governance',description:'Read-only tracking for linked-wallet Squads vault activity.'},
  safeguards:{className:'safeguards-page-header',eyebrow:'SAFEGUARDS',title:'Know what controls your capital.',description:'Monitor the governance, authorities, and protocol changes that can affect your DeFi positions.',descriptionId:'safeguards-summary',after:'<span id="safeguards-live-status" class="safeguards-live-status" hidden aria-live="polite">● Checked · <span></span></span>'},
  exitrail:{eyebrow:'EXITRAIL',title:'Emergency Exit',description:'Prepare an exit in advance and see exactly when it is ready to use.'},

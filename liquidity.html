@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Vault withdrawal liquidity · Kelvara</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body class="liquidity-public">
+<main id="pane-positions" class="public-liquidity-page">
+<a href="/">Kelvara</a>
+<h1>Vault withdrawal liquidity</h1>
+<p>Recorded onchain liquidity for existing and prospective holders. No wallet connection required.</p>
+<label for="liquidity-vault">Supported vault</label>
+<select id="liquidity-vault">
+<option value="BqBsS4myH82S4yfqeKjXSF7yErWwSi5WTshSzKmHQgzw" data-symbol="USDG">Steakhouse USDG</option>
+<option value="BoZDRc1RDY9FzUZZ19WT4GbtTnnbXQ8AGSU5ByEw3ut5" data-symbol="USDG">Steakhouse USDG High Yield</option>
+<option value="B5pjfZAiKjyUEuqB2694NHrsjcaM67uuJaWqjzTVtzR6" data-symbol="USDC">Kamino Institutional Commodity Yield</option>
+</select>
+<section id="public-liquidity" aria-label="Recorded vault withdrawal liquidity"></section>
+</main>
+<script type="module">
+import { renderWithdrawalLiquidity } from '/withdrawal-liquidity.js';
+const selector = document.querySelector('#liquidity-vault');
+const target = new URLSearchParams(location.search).get('targetId');
+if (target) {
+  const address = target.split(':').at(-1);
+  if ([...selector.options].some(option => option.value === address)) selector.value = address;
+}
+const render = () => {
+  const targetId = `solana:mainnet-beta:kamino:kvault:${selector.value}`;
+  history.replaceState(null, '', `?targetId=${encodeURIComponent(targetId)}`);
+  renderWithdrawalLiquidity(document.querySelector('#public-liquidity'), { targetId, symbol: selector.selectedOptions[0].dataset.symbol });
+};
+selector.addEventListener('change', render);
+render();
+</script>
+</body>
+</html>
