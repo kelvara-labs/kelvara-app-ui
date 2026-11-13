@@ -70,6 +70,21 @@ const addressLink = (doc, address, text = shortAddress(address)) => {
   link.href = `${EXPLORER}${encodeURIComponent(address)}`; link.target = '_blank'; link.rel = 'noopener'; link.title = address;
   return link;
 };
+// A long key as a short explorer link plus a Copy button, so it never wraps over four lines and can still be used in full.
+export function copyableAddress(doc, address) {
+  const wrap = node(doc, 'span', 'vault-copyable'), copy = node(doc, 'button', 'vault-copy', 'Copy');
+  const link = addressLink(doc, address);
+  link.setAttribute('aria-label', `${address}, open in explorer`);
+  copy.type = 'button'; copy.setAttribute('aria-label', `Copy address ${address}`);
+  copy.addEventListener('click', () => {
+    const done = text => { copy.textContent = text; setTimeout(() => { copy.textContent = 'Copy'; }, 1600); };
+    const clip = doc.defaultView?.navigator?.clipboard;
+    if (!clip?.writeText) return done('Copy failed');
+    clip.writeText(address).then(() => done('Copied'), () => done('Copy failed'));
+  });
+  wrap.append(link, copy);
+  return wrap;
+}
 function dataTable(doc, headers, rows, className = '') {
   const wrap = node(doc, 'div', `vault-data-table ${className}`.trim());
   const table = node(doc, 'table'), head = node(doc, 'tr');
@@ -594,7 +609,7 @@ const feesAndControl = {
   render(section, terms, ctx) {
     const doc = ctx.document, symbol = ctx.vault.symbol, withdrawal = terms.withdrawal;
     const transfer = terms.pendingAdmin && terms.pendingAdmin !== terms.vaultAdmin && terms.pendingAdmin !== '11111111111111111111111111111111';
-    const keyValue = address => address ? addressLink(doc, address, address) : doc.createTextNode('None');
+    const keyValue = address => address ? copyableAddress(doc, address) : doc.createTextNode('None');
     section.append(facts(doc, [
       ['Performance fee', doc.createTextNode(`${bpsPercent(terms.performanceFeeBps)} of yield`)],
       ['Management fee', doc.createTextNode(`${bpsPercent(terms.managementFeeBps)} per year`)],

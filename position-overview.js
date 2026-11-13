@@ -70,14 +70,16 @@ export async function renderPositionOverview(host, { position, symbol, name, loa
   // Allocation: the vault's reserves with your proportional amount in each.
   const reserves = profile?.reserves?.latest?.length ? reserveHealthModel(profile).rows : [];
   if (reserves.length) {
-    const table = node(doc, 'div', 'vault-data-table'), t = node(doc, 'table'), head = node(doc, 'tr');
-    for (const label of ['Reserve', 'Share of vault', 'Your amount', 'Utilization', 'Free cash', 'Status']) head.append(node(doc, 'th', '', label));
+    const table = node(doc, 'div', 'vault-data-table'), t = node(doc, 'table'), head = node(doc, 'tr'), labels = ['Reserve', 'Share of vault', 'Your amount', 'Utilization', 'Free cash', 'Status'];
+    for (const label of labels) { const th = node(doc, 'th', '', label); th.scope = 'col'; head.append(th); }
     t.append(head);
     for (const row of reserves) {
       const tr = node(doc, 'tr'), link = node(doc, 'a', 'vault-address', shortAddress(row.reserve));
+      link.setAttribute('aria-label', `Reserve ${row.reserve}, open in explorer`);
       link.href = `https://orb.helius.dev/address/${row.reserve}`; link.target = '_blank'; link.rel = 'noopener';
       const cells = [link, vaultPercent(row.share), row.share === null || !Number.isFinite(amount) ? '—' : `${formatTokenAmount(amount * row.share)}${unit}`, vaultPercent(row.utilization), `${compactAmount(row.free)}${unit}`, row.eligible ? '✓ Active' : '! Restricted'];
-      cells.forEach(cell => { const td = node(doc, 'td'); td.append(cell); tr.append(td); });
+      // data-label: on phones each reserve is a panel of labelled rows (the table's header row is hidden there).
+      cells.forEach((cell, index) => { const td = node(doc, 'td'); td.dataset.label = labels[index]; td.append(cell); tr.append(td); });
       t.append(tr);
     }
     table.append(t); lentBody.replaceChildren(table);

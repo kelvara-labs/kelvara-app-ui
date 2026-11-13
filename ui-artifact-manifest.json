@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "canonicalSource": "KELVARA-V4/ui",
-  "canonicalSourceCommit": "1277cbd63070b9e4825b7a5dcadb1153733c8230",
-  "deploymentTarget": "kelvara-labs/kelvara-app-ui:main:/",
-  "generatedAt": "2026-11-10T08:16:40.006Z",
+  "canonicalSourceCommit": "517fa7a2199d7ca542f1f9217321a076233b3a10",
+  "deploymentTarget": "kelvara-labs/kelvara-app-ui",
+  "generatedAt": "2026-11-13T07:21:20.080Z",
   "files": [
     {
       "path": ".nojekyll",
@@ -32,13 +32,13 @@
     },
     {
       "path": "app.html",
-      "bytes": 44736,
-      "sha256": "fcfe46f8fa37b3b2005a095928921f479641dc8d0823214362cf5527247c9214"
+      "bytes": 45628,
+      "sha256": "b535d7dd77e09728faab0b33b33a3e69c621d3a67729499ad18261b95691a09b"
     },
     {
       "path": "app.js",
-      "bytes": 243808,
-      "sha256": "3c877c0e501163a2dac9cf5dc6d4d441f7fd35b841373b7b4ff383e257465d57"
+      "bytes": 316434,
+      "sha256": "8a127c826f841394c5cec3ed1ac4d454d1b1826c9affe67633c369e783f7e57f"
     },
     {
       "path": "assets/custom/fallback.svg",
@@ -131,9 +131,14 @@
       "sha256": "ccdc416707911112da5933a6ed9f60ce1f819333e70447a5701bc012d6865f51"
     },
     {
+      "path": "assets/tokens/generic.svg",
+      "bytes": 277,
+      "sha256": "be836fd118cbfbc024228fb3584fbf1aeff43010f833bd797dc422a0dc6f3081"
+    },
+    {
       "path": "assets/tokens/registry.js",
-      "bytes": 609,
-      "sha256": "4c65c51e15c4c6ccc63eb359cb7a8eebc7143432b81548f29e4e2c8dd976ebf1"
+      "bytes": 813,
+      "sha256": "5853c51408cc711598e536fa6a0c374cd38c3820ffa44601adf512edc3ad912c"
     },
     {
       "path": "assets/tokens/solana.svg",
@@ -182,8 +187,8 @@
     },
     {
       "path": "demo-runtime.mjs",
-      "bytes": 335595,
-      "sha256": "4c2d4676533193ff3c24c4bfbeb94d222c9832b49417d0050395885ea987e13c"
+      "bytes": 495165,
+      "sha256": "5386db71a6bd8b3353bfd79b74d7c23b6b0452ab462ce89ff7cc9e9c28ba57a2"
     },
     {
       "path": "devnet-demo-context.mjs",
@@ -196,14 +201,19 @@
       "sha256": "06852338e16e9b1b22fe14fc66cfa9181be6b4a4d7bb766d5611a3be0c75e45a"
     },
     {
+      "path": "display-labels.js",
+      "bytes": 1731,
+      "sha256": "0e6cf3f8c1a84b74bc9fa7b793d8aa15226b8345c7f2a1d08c2986f895dcc140"
+    },
+    {
       "path": "docs/index.html",
       "bytes": 17117,
       "sha256": "ad11b7e0fb6561ce664ce2318dc7ad0589d1f1881e078cd446d2f7bcda301aa8"
     },
     {
       "path": "dom-poller.mjs",
-      "bytes": 831,
-      "sha256": "68b89ea112c45a5fb0066ce922ff64b7fc64175207d7aefeaac1d6fcbf6f1965"
+      "bytes": 1001,
+      "sha256": "88834770d84e6b0a7ff3ef64f1be2dfcab8cf0b035b372f5113bd8e7c595f913"
     },
     {
       "path": "exit-ladder.js",
@@ -231,6 +241,11 @@
       "sha256": "cc474beaa4c47caadf25e198e2714e72be94267de3662aa221cb0af0539461c9"
     },
     {
+      "path": "governance-signers.js",
+      "bytes": 19166,
+      "sha256": "a042396e99a30b28133a8e488184f8d1e2086ded238cd922c3ae2805041d02ea"
+    },
+    {
       "path": "icon.png",
       "bytes": 208472,
       "sha256": "b619a29b7c7eca50e8cc6f3a171dc36d41374db7c80f37227abc0f0e3dfd7311"
@@ -242,8 +257,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 46925,
-      "sha256": "46784df566557cc9ed145eba907185709eec19d3e119b385edf0e2e6df813943"
+      "bytes": 46866,
+      "sha256": "8d4cd16d96ed6b7d84c424d4cc48a65eebf7413e5f23818174b550b2de525c59"
     },
     {
       "path": "instant-liquidity.js",
@@ -254,6 +269,11 @@
       "path": "liquidity.html",
       "bytes": 1805,
       "sha256": "1407eaf00a0267e252c6b2760cb5c5e80ac6ccfe55a6e8e86de06f5307ffed70"
+    },
+    {
+      "path": "loading-state.js",
+      "bytes": 7459,
+      "sha256": "0fecf6fc4d52340573f2efc9ad1a57b45fdba463699733ffd2dcd9868d68d4f2"
     },
     {
       "path": "manifest.webmanifest",
@@ -277,8 +297,8 @@
     },
     {
       "path": "page-shell.js",
-      "bytes": 2455,
-      "sha256": "739cd53e97a5901ab5040c8624d759927c7218cbf7148e7c87c4594d6c82a70e"
+      "bytes": 2849,
+      "sha256": "99086c914ca4ce265ab45395040280abdf86a13ec0604cafc272b705afb317d6"
     },
     {
       "path": "performance-metrics.js",
@@ -287,8 +307,8 @@
     },
     {
       "path": "position-overview.js",
-      "bytes": 12183,
-      "sha256": "9ccfaad0acf8796b93747610b7292a1935db54c9f3ea2f07b16c850980f4731c"
+      "bytes": 12477,
+      "sha256": "2c64a73cb4cbb01bee3a6f1d43f36ead5ef95e9404bb51bcfd68798f6fed8419"
     },
     {
       "path": "protected-withdraw.js",
@@ -317,8 +337,8 @@
     },
     {
       "path": "styles.css",
-      "bytes": 224679,
-      "sha256": "f0e204489d970b44e805f3d296ebe327ffea39fda51d9af2064c9bdc9dfb99d1"
+      "bytes": 296287,
+      "sha256": "52f5e9ab35c9834c08997cd38da1c287ba9724bb4127b9c94cdc685fa248783d"
     },
     {
       "path": "ui-version.js",
@@ -337,13 +357,13 @@
     },
     {
       "path": "vault-metrics.js",
-      "bytes": 52959,
-      "sha256": "9f61019d8a87b866b20e0f8fb55c392f22ab537fc8b4b322c148ce0ac851b86d"
+      "bytes": 53816,
+      "sha256": "dc3ac19ba1b9e5fde0b38d8f4fc68c1cb7564f898c4b842e3b4fcf3d23903fbd"
     },
     {
       "path": "vaults-page.js",
-      "bytes": 9080,
-      "sha256": "3c44aa1e75f659d7c466346574d15b71fd30d898cb275d9065086e9bc801b8ac"
+      "bytes": 12215,
+      "sha256": "3fd506406116d236aba19948c7138cf6d08b906e3c9fbc02a28521d9ef8f72b2"
     },
     {
       "path": "vendor/solana-web3.min.js",
@@ -357,8 +377,8 @@
     },
     {
       "path": "wallet-exposure-confirm.js",
-      "bytes": 3993,
-      "sha256": "26d15b62e16278c7cec9807edd28b55fb2d91ab6b182aff7eb8ff74218ad3dbe"
+      "bytes": 4057,
+      "sha256": "73beba37a1587ff67229615539850fa5bde8ab4812f416cdee88e683d488ee3d"
     },
     {
       "path": "wallet-exposure-revoke-success.js",
@@ -372,13 +392,13 @@
     },
     {
       "path": "wallet-exposure.css",
-      "bytes": 15263,
-      "sha256": "f3d4a1e09bdd0a8a8049e4b25a4972d5ad15f8e771085da12913a790d4e6e819"
+      "bytes": 17282,
+      "sha256": "3e76b8832f9d5f5333e7fdf165f8fdfa205251375992b208b097ab1f30743176"
     },
     {
       "path": "wallet-exposure.js",
-      "bytes": 25127,
-      "sha256": "09f19f5af870e01d95cd55574283da5c709ee38fb7986d8b47a4596cbe63953c"
+      "bytes": 27890,
+      "sha256": "ad4f14b29abeb5f7611f10b160920842d6d59a18e09fa12bc5b648ed7d72d16e"
     },
     {
       "path": "withdraw-success-focus.js",

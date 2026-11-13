@@ -1,7 +1,9 @@
 // Vaults workspace: pick a vault on the left, read its details on the right (same pattern as Positions).
 // The detail panel is driven entirely by VAULT_METRICS (vault-metrics.js): key figures, one section per
 // metric and the list badge. Vaults come from the connected wallet; the figures are vault-level.
+import { protocolName } from './display-labels.js';
 import { VAULT_METRICS, VAULT_WINDOWS, vaultFigure } from './vault-metrics.js';
+import { startLoading, skeletonRows, skeletonDetail } from './loading-state.js';
 
 const REFRESH_MS = 60000;
 const node = (doc, tag, className, text) => {
@@ -44,10 +46,46 @@ export function createVaultsPage({ root, metrics = VAULT_METRICS, fetchImpl = gl
   const doc = root.ownerDocument;
   const list = root.querySelector('[data-vaults-list]'), detail = root.querySelector('[data-vaults-detail]'), empty = root.querySelector('[data-vaults-empty]');
   const getJson = createJsonCache(fetchImpl);
+  const win = doc.defaultView;
+  // Phones: the list leads; a tapped vault opens as its own view with "‹ All vaults" (browser Back closes it), as Positions.
+  const phone = () => typeof win?.matchMedia === 'function' && win.matchMedia('(max-width:600px)').matches;
+  function openDetailView() {
+    if (!phone()) return;
+    if (!root.classList.contains('is-detail-view')) {
+      root.classList.add('is-detail-view');
+      try { win.history.pushState({ kelvaraVaultDetail: true }, '', win.location.href); } catch {}
+    }
+    try { win.scrollTo({ top: 0, behavior: 'instant' }); } catch {}
+    setTimeout(() => { const heading = detail.querySelector('h2'); if (heading && root.classList.contains('is-detail-view')) { heading.tabIndex = -1; heading.focus({ preventScroll: true }); } }, 60);
+  }
+  function closeDetailView({ fromHistory = false, restoreFocus = true } = {}) {
+    if (!root.classList.contains('is-detail-view')) return;
+    root.classList.remove('is-detail-view');
+    if (!fromHistory && win?.history?.state?.kelvaraVaultDetail) { try { win.history.back(); } catch {} }
+    if (restoreFocus) { const row = [...list.querySelectorAll('.vault-row')].find((item) => item.dataset.targetId === state.selected); row?.focus({ preventScroll: true }); row?.scrollIntoView?.({ block: 'center' }); }
+  }
+  win?.addEventListener?.('popstate', () => { if (!win.history.state?.kelvaraVaultDetail) closeDetailView({ fromHistory: true }); });
+  win?.addEventListener?.('hashchange', () => { if (win.location.hash !== '#vaults') closeDetailView({ restoreFocus: false }); });
   const state = { vaults: [], selected: null, window: '24h', epoch: 0, timer: null };
   const context = vault => ({ vault, window: state.window, document: doc, getJson });
 
+  // While the wallet's positions are on their way: the list and the detail column as skeletons (same split layout).
+  let loading = null, failed = false;
+  function endLoading() { loading?.finish(); loading = null; failed = false; }
+  function showLoading() {
+    if (failed || (loading && !loading.done)) return;
+    state.vaults = []; state.selected = null; clearTimeout(state.timer);
+    empty.hidden = true; root.classList.add('has-vaults');
+    loading = startLoading({ regions: [{ element: list, skeleton: skeletonRows(doc, { rows: 3, cells: ['icon', 'w70/w50', ''], rowClass: 'vault-row', className: 'kv-skel-vaults' }) }, { element: detail, skeleton: skeletonDetail(doc) }], anchor: root.querySelector('.vaults-split'), label: 'Loading your vaults…' });
+  }
+  function showError({ onRetry }) {
+    if (!loading) showLoading();
+    loading?.fail({ into: list, title: 'Vaults unavailable', message: 'Kelvara could not read the vaults you hold. Nothing here is shown as current.', onRetry: () => { failed = false; onRetry(); } });
+    loading = null; failed = true; detail.replaceChildren();
+  }
+
   function showEmpty(text) {
+    endLoading();
     state.vaults = []; state.selected = null; clearTimeout(state.timer);
     root.classList.remove('has-vaults');
     list.replaceChildren(); detail.replaceChildren();
@@ -62,9 +100,9 @@ export function createVaultsPage({ root, metrics = VAULT_METRICS, fetchImpl = gl
       const icon = node(doc, 'img', 'vault-row-icon'); icon.alt = ''; icon.src = iconFor(vault);
       const copy = node(doc, 'span', 'vault-row-copy');
       const badge = node(doc, 'small', 'vault-row-badge', '');
-      copy.append(node(doc, 'strong', '', vault.name), node(doc, 'span', 'vault-row-meta', [vault.protocol, networkLabel, vault.symbol].filter(Boolean).join(' · ')), badge);
+      copy.append(node(doc, 'strong', '', vault.name), node(doc, 'span', 'vault-row-meta', [protocolName(vault.protocol), networkLabel, vault.symbol].filter(Boolean).join(' · ')), badge);
       row.append(icon, copy, node(doc, 'span', 'vault-row-chevron', '›'));
-      row.addEventListener('click', () => select(vault.targetId));
+      row.addEventListener('click', () => { select(vault.targetId); openDetailView(); });
       loadBadge(vault, badge);
       return row;
     });
@@ -89,7 +127,7 @@ export function createVaultsPage({ root, metrics = VAULT_METRICS, fetchImpl = gl
     const nameRow = node(doc, 'div', 'vault-name-row');
     const icon = node(doc, 'img', 'vault-detail-icon'); icon.alt = ''; icon.src = iconFor(vault);
     nameRow.append(node(doc, 'h2', '', vault.name), icon);
-    title.append(node(doc, 'span', 'eyebrow', 'VAULT DETAILS'), nameRow, node(doc, 'p', 'vault-meta-line', [vault.protocol, networkLabel, vault.symbol].filter(Boolean).join(' · ')));
+    title.append(node(doc, 'span', 'eyebrow', 'VAULT DETAILS'), nameRow, node(doc, 'p', 'vault-meta-line', [protocolName(vault.protocol), networkLabel, vault.symbol].filter(Boolean).join(' · ')));
     const windows = node(doc, 'div', 'vault-window');
     windows.setAttribute('role', 'group'); windows.setAttribute('aria-label', 'History window');
     for (const value of VAULT_WINDOWS) {
@@ -98,7 +136,10 @@ export function createVaultsPage({ root, metrics = VAULT_METRICS, fetchImpl = gl
       button.addEventListener('click', () => { if (state.window !== value) { state.window = value; renderDetail(); } });
       windows.append(button);
     }
-    header.append(title, windows);
+    const back = node(doc, 'button', 'vault-back', 'All vaults');
+    back.type = 'button';
+    back.addEventListener('click', () => closeDetailView());
+    header.append(back, title, windows);
     const figures = node(doc, 'div', 'vault-figures');
     figures.setAttribute('aria-label', 'Key figures');
     const sections = metrics.map(metric => {
@@ -148,8 +189,11 @@ export function createVaultsPage({ root, metrics = VAULT_METRICS, fetchImpl = gl
 
   return {
     showEmpty,
+    showLoading,
+    showError,
     update(vaults) {
       if (!vaults.length) return showEmpty('No supported vault positions in this wallet.');
+      endLoading();
       const changed = vaults.map(vault => vault.targetId).join() !== state.vaults.map(vault => vault.targetId).join();
       state.vaults = vaults;
       empty.hidden = true; root.classList.add('has-vaults');
@@ -159,5 +203,7 @@ export function createVaultsPage({ root, metrics = VAULT_METRICS, fetchImpl = gl
     },
     get selected() { return state.selected; },
     select,
+    openDetailView,
+    closeDetailView,
   };
 }
